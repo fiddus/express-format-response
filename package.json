@@ -1,0 +1,28 @@
+{
+  "name": "express-format-response",
+  "version": "0.0.0",
+  "description": "Express middleware for pre-formatting JSON responses",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiddus/express-format-response.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "rest",
+    "restfull",
+    "restapi",
+    "format",
+    "pre-format"
+  ],
+  "author": "Vinicius Teixeira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fiddus/express-format-response/issues"
+  },
+  "homepage": "https://github.com/fiddus/express-format-response#readme"
+}
