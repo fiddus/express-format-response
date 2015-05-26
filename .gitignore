@@ -1,0 +1,11 @@
+### Ignore all hidden files
+.*
+
+### Ignore modules
+node_modules/
+
+
+### Do not ignore these files
+!.gitignore
+!.jscsrc
+!.jshintrc
