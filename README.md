@@ -8,7 +8,7 @@ Works with [Express](https://github.com/visionmedia/express).
 
 ## Usage
 
-This middleware sends the data defined in the configuration template as JSON. For this to work, this must be the last
+This middleware sends the data as defined in the configuration template, in JSON format. For this to work, this must be the last
 middleware used, and no middleware before it can send the response before (unless thats desired, in case of errors or
 authentications problems, for example).
 
@@ -30,7 +30,7 @@ var express = require('express'),
     app.get('/', function (req, res, next) {
         res.info = 'this informaton will be in the response';
         res.data = {
-            arr: ['This', 'array', 'will', 'also'],
+            arr: ['This', 'array', 'will', 'also', 'be', 'in', 'response'],
             nested: {
                 prop: 'so will this nested property'
             }
@@ -44,8 +44,8 @@ var express = require('express'),
 ## TODO
 
 - Improve template parser
-- Add support to response status setting
-- Add support to error
+- Add support to response status definition (today all responses that use this middleware will have 200 status)
+- Add support to error messages formatting
 
 ## Contributing
 
