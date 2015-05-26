@@ -4,11 +4,12 @@
   "description": "Express middleware for pre-formatting JSON responses",
   "main": "index.js",
   "scripts": {
+    "pretest": "grunt lint",
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fiddus/express-format-response.git"
+    "url": "https://github.com/fiddus/express-format-response.git"
   },
   "keywords": [
     "node",
