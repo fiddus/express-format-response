@@ -22,7 +22,7 @@ var express = require('express'),
     responseFormatter = require('express-format-response'),
 
     template = {
-        info: '<%= res.info %>'
+        info: '<%= res.info %>',
         data: '<%= res.data %>',
         method: '<%= req.method %>'
     };
@@ -38,7 +38,39 @@ var express = require('express'),
         // req.method is already in the request object, so no need to add it here.
 
     }, responseFormatter(template));
+```
 
+To avoid cluttering the namespace in the `request` and `response` objects, it is possible to create use properties nested
+inside a container object. The template itself supports nested placeholders as well.
+
+```javascript
+var express = require('express'),
+    app = express(),
+    responseFormatter = require('express-format-response'),
+
+    template = {
+        // Nested properties in template
+        info: {
+            message: '<%= res.fiddus.message %>',
+            version: '<%= res.fiddus.apiVersion %>,
+            method: '<%= req.method %>'
+         },
+        data: '<%= res.fiddus.data %>',
+    };
+
+    app.get('/', function (req, res, next) {
+        // Avoid cluttering the namespace by creating a container to all the data to be passed to template
+        res.fiddus = {
+            message: 'this informaton will be in the response',
+            version: 1,
+            data: {
+                arr: ['This', 'array', 'will', 'also', 'be', 'in', 'response'],
+                nested: {
+                    prop: 'so will this nested property'
+                }
+            }
+         }
+    }, responseFormatter(template));
 ```
 
 ## TODO
