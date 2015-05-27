@@ -52,7 +52,7 @@ var express = require('express'),
         // Nested properties in template
         info: {
             message: '<%= res.fiddus.message %>',
-            version: '<%= res.fiddus.apiVersion %>,
+            version: '<%= res.fiddus.apiVersion %>',
             method: '<%= req.method %>'
          },
         data: '<%= res.fiddus.data %>',
