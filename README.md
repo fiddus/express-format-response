@@ -40,7 +40,7 @@ var express = require('express'),
     }, responseFormatter(template));
 ```
 
-To avoid cluttering the namespace in the `request` and `response` objects, it is possible to create use properties nested
+To avoid cluttering the namespace in the `request` and `response` objects, it is possible to use properties nested
 inside a container object. The template itself supports nested placeholders as well.
 
 ```javascript
