@@ -56,7 +56,7 @@ describe('express-format-response tests', function () {
     });
 
     it('should be able to create format objects using both req and res objects', function (done) {
-        var format = {
+        var template = {
             response: {
                 info: '<%= res.info %>',
                 method: '<%= req.method =>'
@@ -68,7 +68,7 @@ describe('express-format-response tests', function () {
         app.get('/', function (req, res, next) {
             res.info = 'test passing!';
             next();
-        }, responseFormatter(format));
+        }, responseFormatter(template));
 
         request(app)
             .get('/')
@@ -79,6 +79,34 @@ describe('express-format-response tests', function () {
                 expect(res.body.response.method).to.equal('GET');
             })
             .end(done);
+    });
 
+    it('should set response status appropriately when responseStatus is set in response object', function (done) {
+        var template = {
+            response: {
+                info: '<%= res.info %>',
+                method: '<%= req.method =>',
+                status: '<%= res.responseStatus %>'
+            }
+        };
+
+        var app = express();
+
+        app.get('/', function (req, res, next) {
+            res.info = 'test passing!';
+            res.responseStatus = 203;
+            next();
+        }, responseFormatter(template));
+
+        request(app)
+            .get('/')
+            .expect(203)
+            .expect(function (res) {
+                expect(res.body.response).to.be.an('object');
+                expect(res.body.response.info).to.equal('test passing!');
+                expect(res.body.response.method).to.equal('GET');
+                expect(res.body.response.status).to.equal(203);
+            })
+            .end(done);
     });
 });

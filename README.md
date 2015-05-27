@@ -73,10 +73,12 @@ var express = require('express'),
     }, responseFormatter(template));
 ```
 
+It is possible to set the response status code through the field responseCode in the `response` object. If nothing is set
+to this field, response code will be 200.
+
 ## TODO
 
 - Improve template parser
-- Add support to response status definition (today all responses that use this middleware will have 200 status)
 - Add support to error messages formatting
 
 ## Contributing

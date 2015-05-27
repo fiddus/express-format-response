@@ -130,7 +130,8 @@ var formatResponse = function (format) {
     };
 
     return function (req, res) {
-        res.json(createFormattedResponse(format, {req: req, res: res}));
+        var statusCode = res.responseStatus || 200;
+        return res.status(statusCode).json(createFormattedResponse(format, {req: req, res: res}));
     };
 };
 
