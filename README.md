@@ -62,7 +62,7 @@ var express = require('express'),
         // Avoid cluttering the namespace by creating a container to all the data to be passed to template
         res.fiddus = {
             message: 'this informaton will be in the response',
-            version: 1,
+            apiVersion: 1,
             data: {
                 arr: ['This', 'array', 'will', 'also', 'be', 'in', 'response'],
                 nested: {
