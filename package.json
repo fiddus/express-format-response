@@ -1,6 +1,6 @@
 {
   "name": "express-format-response",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Express middleware for pre-formatting JSON responses",
   "main": "index.js",
   "scripts": {
